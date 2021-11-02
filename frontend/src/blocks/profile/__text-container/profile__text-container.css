@@ -1,0 +1,5 @@
+@media only screen and (min-width: 880px) {
+  .profile__text-container {
+    padding-left: 28px;
+  }
+}

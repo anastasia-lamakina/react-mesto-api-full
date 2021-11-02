@@ -1,0 +1,10 @@
+.header__logout{
+  all: unset;
+  font-family: Inter, Arial, "sans-serif";
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #A9A9A9;
+
+  cursor: pointer;
+}

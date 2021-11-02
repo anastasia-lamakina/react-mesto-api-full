@@ -1,0 +1,23 @@
+.popup__input {
+  all: unset;
+  width: 238px;
+  margin: 0 22px 0 22px;
+  font-family: Inter, Arial, "sans-serif";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
+@media only screen and (min-width: 880px) {
+  .popup__input {
+    width: 358px;
+    margin: 0 36px 0 36px;
+  }
+}

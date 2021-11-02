@@ -1,0 +1,23 @@
+.popup__span {
+  all: unset;
+  font-family: Inter, Arial, "sans-serif";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+
+  line-height: 15px;
+  margin-top: 5px;
+  margin-left: 22px;
+  margin-right: 22px;
+  margin-bottom: 13px;
+  min-height: 15px;
+  display: block;
+}
+
+
+@media only screen and (min-width: 880px) {
+  .popup__span {
+    margin-left: 36px;
+    margin-right: 36px;
+  }
+}

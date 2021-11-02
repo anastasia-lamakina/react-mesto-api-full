@@ -1,0 +1,10 @@
+.destination-card__picture {
+  border-radius: 10px 10px 0px 0px;
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+}
+
+.destination-card__picture:hover {
+  cursor: pointer;
+}

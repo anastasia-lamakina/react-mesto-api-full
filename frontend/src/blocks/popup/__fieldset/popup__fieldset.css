@@ -1,0 +1,6 @@
+.popup__fieldset {
+  all: unset;
+  display: grid;
+  justify-content: center;
+  padding-top: 54px;
+}

@@ -1,0 +1,18 @@
+.header__logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 104px;
+  height: auto;
+  padding-top: 28px;
+  padding-bottom: 32px;
+  padding-left: 27px;
+}
+
+@media only screen and (min-width: 880px) {
+  .header__logo {
+    width: 142px;
+    padding-left: 0;
+    padding-top: 45px;
+    padding-bottom: 41px;
+  }
+}

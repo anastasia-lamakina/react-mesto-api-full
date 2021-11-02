@@ -1,0 +1,25 @@
+.popup__close {
+  all: unset;
+  width: 26px;
+  height: 26px;
+  background-image: url(../../../images/add-button-picture.svg);
+  background-size: 26px 26px;
+  position: absolute;
+  top: -40px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.popup__close:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media only screen and (min-width: 880px) {
+  .popup__close {
+    width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
+    right: -40px;
+  }
+}

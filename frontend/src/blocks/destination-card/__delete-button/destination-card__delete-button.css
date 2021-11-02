@@ -1,0 +1,16 @@
+.destination-card__delete-button {
+  all: unset;
+  min-width: 18px;
+  min-height: 19px;
+  background-image: url(../../../images/delete-icon.svg);
+  background-size: 18px 19px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 15px;
+  right: 18px;
+}
+
+.destination-card__delete-button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

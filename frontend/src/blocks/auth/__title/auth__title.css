@@ -1,0 +1,18 @@
+.auth__title {
+  margin: 0;
+  padding: 50px 0px 60px 0px;
+  text-align: center;
+  color: white;
+  font-family: Inter, Arial, "sans-serif";
+  font-style: normal;
+  font-weight: 900;
+  font-size:24px;
+  line-height: 29px;
+}
+
+@media only screen and (min-width: 880px) {
+  .auth__title {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
