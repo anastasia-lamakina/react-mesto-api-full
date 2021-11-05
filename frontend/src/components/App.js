@@ -57,12 +57,13 @@ const App = () => {
   useEffect(() => {
     api
       .getUserProfile()
-      .then(({ name, about, avatar, _id }) => {
+      .then(({ name, about, avatar, email, _id }) => {
         setCurrentUser((prev) => ({
           ...prev,
           name,
           about,
           avatar,
+          email,
           _id,
         }));
       })
@@ -76,7 +77,7 @@ const App = () => {
 
     if (location.pathname === "/" && token) {
       authApi
-        .getUser()
+        .getUser(token)
         .then(({ data }) => {
           setCurrentUser({ ...currentUser, email: data.email });
         })

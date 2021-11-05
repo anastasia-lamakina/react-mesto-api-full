@@ -22,10 +22,8 @@ const Card = ({
   onDeleteClick,
 }) => {
   const currentUser = useContext(CurrentUserContext);
-  const isOwner = owner._id === currentUser._id;
-  const isLikedByCurrentUser = likes.some(
-    (like) => like._id === currentUser._id
-  );
+  const isOwner = owner === currentUser._id;
+  const isLikedByCurrentUser = likes.some((like) => like === currentUser._id);
 
   const likesCount = likes.length;
   return (

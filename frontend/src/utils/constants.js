@@ -23,5 +23,4 @@ export const validatorSettings = {
   spanErrorClass: Selectors.popupSpanError,
 };
 
-export const API_KEY = "86d254e6-e813-4798-a0b1-34874f11e3e8";
-export const API_BASE_PATH = `https://mesto-lamakina.nomoredomains.work`;
+export const API_BASE_PATH = `https://mesto-lamakina.nomoredomains.work/api`;

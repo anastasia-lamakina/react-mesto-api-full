@@ -43,6 +43,8 @@ const Header = () => {
           </span>
         );
         break;
+      default:
+        break;
     }
   }, [location, currentUser]);
 

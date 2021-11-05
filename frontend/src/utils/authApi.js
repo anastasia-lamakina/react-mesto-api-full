@@ -31,10 +31,12 @@ class AuthApi {
     }).then(this._checkResponse);
   }
 
-  getUser() {
+  getUser(token) {
     return fetch(`${this._basePath}/users/me`, {
-      headers: this._headers,
-      credentials: "include",
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${token}`,
+      },
     }).then(this._checkResponse);
   }
 }
