@@ -9,6 +9,7 @@ const cards = require('./routes/cards');
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/notFoundError');
+const UnauthorizedAccessError = require('./errors/unauthorizedAcessError');
 const validateURL = require('./utils/validateURL');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -69,7 +70,11 @@ app.use('/users', auth, users);
 app.use('/cards', auth, cards);
 
 app.use((req, res, next) => {
-  next(new NotFoundError('Страница не найдена'));
+  if (req.user) {
+    next(new NotFoundError('Страница не найдена'));
+  } else {
+    next(new UnauthorizedAccessError('Необходима авторизация'));
+  }
 });
 
 app.use(errorLogger);
