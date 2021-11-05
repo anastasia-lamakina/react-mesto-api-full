@@ -46,6 +46,7 @@ const Header = () => {
       default:
         break;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, currentUser]);
 
   return (

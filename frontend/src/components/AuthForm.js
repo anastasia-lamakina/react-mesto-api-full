@@ -39,6 +39,7 @@ export const AuthForm = ({
       setSubmitText(submitButtonText);
       loadingRef.current = null;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const handleSubmit = () => {

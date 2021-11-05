@@ -9,6 +9,13 @@ class Api {
     };
   }
 
+  setAuthorization(token) {
+    this._headers = {
+      ...this._headers,
+      Authorization: `Bearer ${token}`,
+    };
+  }
+
   _checkResponse(res) {
     if (res.ok) {
       return res.json();

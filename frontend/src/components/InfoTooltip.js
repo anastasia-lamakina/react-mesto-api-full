@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Popup from "./Popup";
 import successLogo from "../images/success-logo.svg";
 import failLogo from "../images/fail-logo.svg";
@@ -11,14 +11,22 @@ const InfoTooltip = ({ isOpen, onClose, success }) => {
         <div className="popup__message">
           {success ? (
             <>
-              <img className="popup__message-image" src={successLogo} />
+              <img
+                className="popup__message-image"
+                src={successLogo}
+                alt="Success logo"
+              />
               <p className="popup__message-text">
                 Вы успешно зарегистрировались!
               </p>
             </>
           ) : (
             <>
-              <img className="popup__message-image" src={failLogo} />
+              <img
+                className="popup__message-image"
+                src={failLogo}
+                alt="Fail logo"
+              />
               <p className="popup__message-text">
                 Что-то пошло не так! Попробуйте ещё раз.
               </p>

@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
@@ -55,31 +49,14 @@ const App = () => {
   };
 
   useEffect(() => {
-    api
-      .getUserProfile()
-      .then(({ name, about, avatar, email, _id }) => {
-        setCurrentUser((prev) => ({
-          ...prev,
-          name,
-          about,
-          avatar,
-          email,
-          _id,
-        }));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  useEffect(() => {
     const token = localStorage.getItem("jwt");
 
     if (location.pathname === "/" && token) {
       authApi
         .getUser(token)
-        .then(({ data }) => {
-          setCurrentUser({ ...currentUser, email: data.email });
+        .then(({ name, about, avatar, email, _id }) => {
+          setCurrentUser({ name, about, avatar, email, _id });
+          api.setAuthorization(token);
         })
         .catch((err) => console.log(err));
     }

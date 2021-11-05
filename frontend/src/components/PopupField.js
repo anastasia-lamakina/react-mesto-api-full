@@ -6,7 +6,7 @@ const PopupField = ({
   minLength = undefined,
   maxLength = undefined,
   type = undefined,
-  value,
+  value = "",
   onChange = () => {},
   inputRef,
 }) => (

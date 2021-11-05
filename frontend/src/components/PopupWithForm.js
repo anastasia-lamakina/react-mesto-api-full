@@ -22,6 +22,7 @@ const PopupWithForm = ({
     if (validate) {
       new FormValidator(validatorSettings, formRef.current).enableValidation();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const PopupWithForm = ({
       setCloseText(closeButtonText);
       loadingRef.current = null;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   return (
