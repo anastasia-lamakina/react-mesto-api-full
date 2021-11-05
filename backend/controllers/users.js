@@ -9,9 +9,7 @@ const User = require('../models/user');
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const createUser = (req, res, next) => {
-  const {
-    name, about, avatar, email, password,
-  } = req.body;
+  const { name, about, avatar, email, password } = req.body;
 
   bcrypt.hash(password, 10).then((hash) => {
     User.create({
@@ -21,14 +19,16 @@ const createUser = (req, res, next) => {
       email,
       password: hash,
     })
-      .then((user) => res.status(200).send({
-        data: {
-          name: user.name,
-          about: user.about,
-          avatar: user.avatar,
-          email: user.email,
-        },
-      }))
+      .then((user) =>
+        res.status(200).send({
+          data: {
+            name: user.name,
+            about: user.about,
+            avatar: user.avatar,
+            email: user.email,
+          },
+        }),
+      )
       .catch((err) => {
         if (err.name === 'ValidationError') {
           next(
@@ -159,6 +159,7 @@ const login = (req, res, next) => {
       res.cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
+        sameSite: 'none',
       });
 
       res.status(200).send({ _id: user._id });

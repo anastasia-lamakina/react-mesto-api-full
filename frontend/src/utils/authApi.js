@@ -1,4 +1,4 @@
-import { AUTH_API_BASE_PATH } from "./constants";
+import { API_BASE_PATH } from "./constants";
 
 class AuthApi {
   constructor({ basePath }) {
@@ -31,18 +31,16 @@ class AuthApi {
     }).then(this._checkResponse);
   }
 
-  getUser(token) {
+  getUser() {
     return fetch(`${this._basePath}/users/me`, {
-      headers: {
-        ...this._headers,
-        Authorization: `Bearer ${token}`,
-      },
+      headers: this._headers,
+      credentials: "include",
     }).then(this._checkResponse);
   }
 }
 
 const authApi = new AuthApi({
-  basePath: AUTH_API_BASE_PATH,
+  basePath: API_BASE_PATH,
 });
 
 export default authApi;

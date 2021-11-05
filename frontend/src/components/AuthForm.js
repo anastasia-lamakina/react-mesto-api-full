@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FormValidator } from "../utils/FormValidator";
-import { authValidatorSettings } from "../utils/constants";
 import AuthFormField from "./AuthFormField";
 import { Link, useLocation } from "react-router-dom";
 

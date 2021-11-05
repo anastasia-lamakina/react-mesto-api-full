@@ -1,6 +1,8 @@
+require('dotenv').config();
 const { celebrate, Joi, errors } = require('celebrate');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const users = require('./routes/users');
 const cards = require('./routes/cards');
@@ -8,6 +10,7 @@ const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/notFoundError');
 const validateURL = require('./utils/validateURL');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const port = 3000;
 
@@ -20,6 +23,22 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: [
+      'http://localhost:3001',
+      'https://mesto-lamakina.nomoredomains.work',
+    ],
+    credentials: true,
+  }),
+);
+app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post(
   '/signup',
@@ -53,6 +72,7 @@ app.use((req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
 
+app.use(errorLogger);
 app.use(errors());
 
 // eslint-disable-next-line no-unused-vars

@@ -76,7 +76,7 @@ const App = () => {
 
     if (location.pathname === "/" && token) {
       authApi
-        .getUser(token)
+        .getUser()
         .then(({ data }) => {
           setCurrentUser({ ...currentUser, email: data.email });
         })
